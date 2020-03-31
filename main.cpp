@@ -11,7 +11,6 @@ int main()
     int RFPNumber = 0;
     string line, bestProp;
     istringstream ss;
-    bool isFinalRFP = false;
 
     while (getline(cin, line))
     {
