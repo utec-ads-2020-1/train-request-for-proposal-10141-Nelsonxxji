@@ -8,9 +8,10 @@ using namespace std;
 
 int main()
 {
-    int RFPNumber = 1;
+    int RFPNumber = 0;
     string line, bestProp;
     istringstream ss;
+    bool isFinalRFP = false;
 
     while (getline(cin, line))
     {
@@ -22,10 +23,20 @@ int main()
         ss >> n >> p;
         ss.clear();
 
-        if (n == 0 || p == 0)
+        if (n == 0 && p == 0)
         {
+            cout << "RFP #" << RFPNumber << endl
+                 << bestProp << endl;
             break;
         }
+
+        if (RFPNumber != 0)
+        {
+            cout << "RFP #" << RFPNumber << endl
+                 << bestProp << endl
+                 << endl;
+        }
+        RFPNumber++;
         for (int i = 0; i < n; i++)
         {
             getline(cin, line);
@@ -33,9 +44,7 @@ int main()
         while (propNumber <= p)
         {
             getline(cin, line);
-            ss.str(line);
-            ss >> prop;
-            ss.clear();
+            prop = line;
 
             getline(cin, line);
             ss.str(line);
@@ -64,9 +73,6 @@ int main()
             }
             propNumber++;
         }
-        cout << "RFP #" << RFPNumber << endl
-             << bestProp << endl;
-        RFPNumber++;
     }
     return EXIT_SUCCESS;
 }
